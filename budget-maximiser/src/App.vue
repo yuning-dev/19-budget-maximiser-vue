@@ -13,17 +13,20 @@
                 <form :class="$style.addItemsInnerWrapper" action="javascript:void(0);">
                     <div :class="$style.formItem">
                         <label for="itemName">Item name</label> 
-                        <input type="text" id="itemName">
+                        <input type="text" id="itemName" v-model="name">
                     </div>
                     <div :class="$style.formItem">
                         <label for="itemCost">Item cost</label> 
-                        <input type="text" id="itemCost">
+                        <input type="text" id="itemCost" v-model="cost">
                     </div>
                 </form>
                 <div :class="$style.mustHaveWrapper">
-                    <label for="mustHave">Is it a must-have</label><input type="checkbox" id="mustHave">
+                    <label for="mustHave">Is it a must-have</label><input type="checkbox" id="mustHave" @click="toggleMustHave()" >
                 </div>
-                <button :class="$style.addItemBtn">Add item</button>
+                <button :class="$style.addItemBtn" @click="addItemBtnClicked">Add item</button>
+            </div>
+            <div :class="$style.itemsList">
+
             </div>
             <button :class="$style.generateValueBtn">Generate Max Value!</button>
         </div>
@@ -33,7 +36,37 @@
 <script>
 export default {
     name: 'App',
-
+    data() {
+        return {
+            name: null,
+            cost: null,
+            isMustHave: false,
+            items: []
+        }
+    },
+    methods: {
+        toggleMustHave() {
+            if (this.isMustHave) {
+                this.isMustHave = false
+                console.log('I should be false')
+            } else {
+                this.isMustHave = true
+                console.log('Hi I am true')
+            }
+        },
+        addItemBtnClicked() {
+            const item = {
+                name: this.name,
+                cost: this.cost,
+                mustHave: this.isMustHave
+            }
+            this.items.push(item)
+            console.log(item)
+            console.log(this.items)
+            this.name = ''
+            this.cost = ''
+        }
+    }
 }
 </script>
 
