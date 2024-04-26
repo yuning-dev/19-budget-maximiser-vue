@@ -1,47 +1,42 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+        <h1>Budget maximiser</h1>
+        <h2>Give us you budget, we'll get you the best value!</h2>
+        <div :class="$style.mainWrapper">
+            <form :class="[$style.budget, $style.box]" action="javascript:void(0);">
+                <div :class="$style.budgetInner">
+                    <label for="budget">Your budget</label><input type="text" id="budget">
+                </div>
+            </form>
+            <div :class="[$style.addItemsWrapper, $style.box]">
+                <p>Add items</p> <br>
+                <form :class="$style.addItemsInnerWrapper" action="javascript:void(0);">
+                    <div :class="$style.formItem">
+                        <label for="itemName">Item name</label> 
+                        <input type="text" id="itemName">
+                    </div>
+                    <div :class="$style.formItem">
+                        <label for="itemCost">Item cost</label> 
+                        <input type="text" id="itemCost">
+                    </div>
+                </form>
+                <div :class="$style.mustHaveWrapper">
+                    <label for="mustHave">Is it a must-have</label><input type="checkbox" id="mustHave">
+                </div>
+                <button :class="$style.addItemBtn">Add item</button>
+            </div>
+            <button :class="$style.generateValueBtn">Generate Max Value!</button>
+        </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script>
+export default {
+    name: 'App',
+
 }
+</script>
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+<style module src="@/App.css">
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
