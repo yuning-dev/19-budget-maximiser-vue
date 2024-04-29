@@ -28,6 +28,7 @@ form {
 label[for="itemName"], label[for="itemCost"]{
     display: table-cell;
     width: 90px;
+    height: 30px;
 }
 
 input[id="itemName"], input[id="itemCost"] {
@@ -37,6 +38,7 @@ input[id="itemName"], input[id="itemCost"] {
 .mainWrapper {
     margin: 25px auto 0 auto;
     width: 800px;
+    display: flex;
 }
 
 .box {
@@ -53,14 +55,16 @@ input[id="itemName"], input[id="itemCost"] {
     padding-right: 8px;
 }
 
-.addItemsWrapper {
-    height: 135px;
-}
-
 .addItemsInnerWrapper {
     padding-left: 15px;
 }
 
+.errorDiv {
+    padding-left: 15px;
+    font-size: 0.925em;
+    color: blueviolet;
+}
+    
 .mustHaveWrapper {
     margin-top: 5px;
     padding-left: 15px;
@@ -68,8 +72,11 @@ input[id="itemName"], input[id="itemCost"] {
     gap: 5px;
 }
 
+.addBtnWrapper {
+    text-align: right;
+}
+
 .addItemBtn {
-    float: right;
     margin: 10px 40px 20px 0;
     padding: 5px 8px;
     font-size: 1.0125em;
