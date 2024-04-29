@@ -1,9 +1,23 @@
 .wrapper {
-    width: 200px;
+    width: 250px;
     background: whitesmoke;
     border: 1px solid silver;
     border-radius: 5px;
     padding: 8px 15px;
     display: flex;
     justify-content: space-between;
+}
+
+.editBtn {
+    margin-left: 5px;
+    padding: 3px 6px;
+    background-color: #5D8AA8;
+    color: white;
+    border: none;
+    border-radius: 2.5px;
+}
+
+.editBtn:hover {
+    cursor: pointer;
+    background-color: #70a5c9;
 }

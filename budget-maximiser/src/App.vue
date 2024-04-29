@@ -14,19 +14,19 @@
                     <form :class="$style.addItemsInnerWrapper" action="javascript:void(0);">
                         <div :class="$style.formItem">
                             <label for="itemName">Item name</label> 
-                            <input type="text" id="itemName" v-model="name">
+                            <input type="text" id="itemName" v-model="name" :on-focus="showNameError()">
                         </div>
                         <div :class="$style.formItem">
                             <label for="itemCost">Item cost</label> 
-                            <input type="text" id="itemCost" v-model="cost">
+                            <input type="text" id="itemCost" v-model="cost" :on-focus="showCostError()">
                         </div>
                     </form>
-                    <template v-if="this.addBtnClicked && !validName">
+                    <template v-if="showNameError()">
                         <div :class="$style.errorDiv">
                             Please enter a valid name.
                         </div>
                     </template>
-                    <template v-if="this.addBtnClicked && !validCost">
+                    <template v-if="showCostError()">
                         <div :class="$style.errorDiv">
                             Please enter a cost that is > 0.
                         </div>
@@ -63,7 +63,6 @@ export default {
             cost: '',
             isMustHave: false,
             items: [{ name: 'mug', cost: 12.99, mustHave: true }, { name: 'coaster', cost: 4.50, mustHave: false }],
-            addBtnClicked: false
         }
     },
     computed: {
@@ -87,21 +86,35 @@ export default {
             this.isMustHave = !this.isMustHave
         },
         addItemBtnClicked() {
-            this.addBtnClicked = true
             if (this.validName && this.validCost) {
                 const item = {
                     name: this.name,
                     cost: this.cost,
                     mustHave: this.isMustHave
                 }
-
-                this.items.push(item)
+                if (item.mustHave === true) {
+                    this.items.unshift(item)
+                } else {
+                    this.items.push(item)
+                }
                 this.name = ''
                 this.cost = ''
                 this.isMustHave = false
                 console.log(item)
                 console.log(this.items)
             }
+        },
+        showError(field, validField) {
+            if (field !== '' && !validField) {
+                return true
+            }
+            return false
+        },
+        showNameError() {
+            return this.showError(this.name, this.validName)
+        },
+        showCostError() {
+            return this.showError(this.cost, this.validCost)
         }
     }
 }

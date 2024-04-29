@@ -81,14 +81,15 @@ input[id="itemName"], input[id="itemCost"] {
     padding: 5px 8px;
     font-size: 1.0125em;
     color: rgb(80, 80, 80);
-    background: #DAF7A6;
+    background: #6B8E23;
+    color: white;
     border: none;
     border-radius: 5px;;
 }
 
 .addItemBtn:hover {
     cursor: pointer;
-    filter: brightness(90%)
+    background: #86b22d;
 }
 
 .itemsList {
