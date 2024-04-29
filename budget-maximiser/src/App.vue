@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <h1>Budget maximiser</h1>
-        <h2>Give us you budget, we'll get you the best value!</h2>
+        <h2>Give us your budget, we'll get you the best value!</h2>
         <div :class="$style.mainWrapper">
             <div>
                 <form :class="[$style.budget, $style.box]" action="javascript:void(0);">
@@ -41,6 +41,7 @@
             </div>
             <div :class="$style.itemsList">
                 <template v-for="item in items">
+                    <Item :item="item" />
                 </template>
             </div>
             <!-- <button :class="$style.generateValueBtn">Generate Max Value!</button> -->
@@ -49,14 +50,19 @@
 </template>
 
 <script>
+import Item from '@/components/Item/Item.vue'
+
 export default {
     name: 'App',
+    components: {
+        Item
+    },
     data() {
         return {
             name: '',
             cost: '',
             isMustHave: false,
-            items: [],
+            items: [{ name: 'mug', cost: 12.99, mustHave: true }, { name: 'coaster', cost: 4.50, mustHave: false }],
             addBtnClicked: false
         }
     },
@@ -96,7 +102,6 @@ export default {
                 console.log(item)
                 console.log(this.items)
             }
-
         }
     }
 }

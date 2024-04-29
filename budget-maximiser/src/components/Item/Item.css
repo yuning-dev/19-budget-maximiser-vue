@@ -1,0 +1,9 @@
+.wrapper {
+    width: 200px;
+    background: whitesmoke;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -42,9 +42,9 @@ input[id="itemName"], input[id="itemCost"] {
 }
 
 .box {
-    border: 1px solid grey;
+    border: 1px solid silver;
     border-radius: 5px;
-    background: rgb(231, 239, 245);
+    background: rgb(233, 238, 243);
     padding: 20px;
     width: 300px;
     margin-top: 10px;
@@ -81,7 +81,7 @@ input[id="itemName"], input[id="itemCost"] {
     padding: 5px 8px;
     font-size: 1.0125em;
     color: rgb(80, 80, 80);
-    background: pink;
+    background: #DAF7A6;
     border: none;
     border-radius: 5px;;
 }
@@ -89,4 +89,12 @@ input[id="itemName"], input[id="itemCost"] {
 .addItemBtn:hover {
     cursor: pointer;
     filter: brightness(90%)
+}
+
+.itemsList {
+    margin-left: 50px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
