@@ -28,6 +28,7 @@ form {
 label[for="itemName"], label[for="itemCost"]{
     display: table-cell;
     width: 90px;
+    height: 30px;
 }
 
 input[id="itemName"], input[id="itemCost"] {
@@ -39,10 +40,15 @@ input[id="itemName"], input[id="itemCost"] {
     width: 800px;
 }
 
+.formListWrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .box {
-    border: 1px solid grey;
+    border: 1px solid silver;
     border-radius: 5px;
-    background: rgb(231, 239, 245);
+    background: rgb(233, 238, 243);
     padding: 20px;
     width: 300px;
     margin-top: 10px;
@@ -53,14 +59,16 @@ input[id="itemName"], input[id="itemCost"] {
     padding-right: 8px;
 }
 
-.addItemsWrapper {
-    height: 135px;
-}
-
 .addItemsInnerWrapper {
     padding-left: 15px;
 }
 
+.errorDiv {
+    padding-left: 15px;
+    font-size: 0.925em;
+    color: blueviolet;
+}
+    
 .mustHaveWrapper {
     margin-top: 5px;
     padding-left: 15px;
@@ -68,18 +76,45 @@ input[id="itemName"], input[id="itemCost"] {
     gap: 5px;
 }
 
+.addBtnWrapper {
+    text-align: right;
+}
+
 .addItemBtn {
-    float: right;
     margin: 10px 40px 20px 0;
     padding: 5px 8px;
     font-size: 1.0125em;
     color: rgb(80, 80, 80);
-    background: pink;
+    background: #6B8E23;
+    color: white;
     border: none;
-    border-radius: 5px;;
+    border-radius: 2.5px;;
 }
 
 .addItemBtn:hover {
     cursor: pointer;
-    filter: brightness(90%)
+    background: #86b22d;
+}
+
+.itemsList {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.generateValueBtn {
+    display: block;
+    margin: 30px auto;
+    background: #452c63;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+}
+
+.generateValueBtn:hover {
+    cursor: pointer;
+    background-color: #4B0082;
 }
