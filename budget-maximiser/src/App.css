@@ -38,7 +38,11 @@ input[id="itemName"], input[id="itemCost"] {
 .mainWrapper {
     margin: 25px auto 0 auto;
     width: 800px;
+}
+
+.formListWrapper {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .box {
@@ -84,7 +88,7 @@ input[id="itemName"], input[id="itemCost"] {
     background: #6B8E23;
     color: white;
     border: none;
-    border-radius: 5px;;
+    border-radius: 2.5px;;
 }
 
 .addItemBtn:hover {
@@ -93,9 +97,24 @@ input[id="itemName"], input[id="itemCost"] {
 }
 
 .itemsList {
-    margin-left: 50px;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.generateValueBtn {
+    display: block;
+    margin: 30px auto;
+    background: #452c63;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+}
+
+.generateValueBtn:hover {
+    cursor: pointer;
+    background-color: #4B0082;
 }

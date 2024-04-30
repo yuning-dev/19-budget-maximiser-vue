@@ -3,49 +3,56 @@
         <h1>Budget maximiser</h1>
         <h2>Give us your budget, we'll get you the best value!</h2>
         <div :class="$style.mainWrapper">
-            <div>
-                <form :class="[$style.budget, $style.box]" action="javascript:void(0);">
-                    <div :class="$style.budgetInner">
-                        <label for="budget">Your budget</label><input type="text" id="budget">
-                    </div>
-                </form>
-                <div :class="[$style.addItemsWrapper, $style.box]">
-                    <p>Add items</p> <br>
-                    <form :class="$style.addItemsInnerWrapper" action="javascript:void(0);">
-                        <div :class="$style.formItem">
-                            <label for="itemName">Item name</label> 
-                            <input type="text" id="itemName" v-model="name" :on-focus="showNameError()">
-                        </div>
-                        <div :class="$style.formItem">
-                            <label for="itemCost">Item cost</label> 
-                            <input type="text" id="itemCost" v-model="cost" :on-focus="showCostError()">
+            <div :class="$style.formListWrapper">
+                <div>
+                    <form :class="[$style.budget, $style.box]" action="javascript:void(0);">
+                        <div :class="$style.budgetInner">
+                            <label for="budget">Your budget</label><input type="text" id="budget">
                         </div>
                     </form>
-                    <template v-if="showNameError()">
-                        <div :class="$style.errorDiv">
-                            Please enter a valid name.
+                    <div :class="[$style.addItemsWrapper, $style.box]">
+                        <p>Add items</p> <br>
+                        <form :class="$style.addItemsInnerWrapper" action="javascript:void(0);">
+                            <div :class="$style.formItem">
+                                <label for="itemName">Item name</label> 
+                                <input type="text" id="itemName" v-model="name" :on-focus="showNameError()">
+                            </div>
+                            <div :class="$style.formItem">
+                                <label for="itemCost">Item cost</label> 
+                                <input type="text" id="itemCost" v-model="cost" :on-focus="showCostError()">
+                            </div>
+                        </form>
+                        <template v-if="showNameError()">
+                            <div :class="$style.errorDiv">
+                                Please enter a valid name.
+                            </div>
+                        </template>
+                        <template v-if="showCostError()">
+                            <div :class="$style.errorDiv">
+                                Please enter a cost that is > 0.
+                            </div>
+                        </template>
+                        <div :class="$style.mustHaveWrapper">
+                            <label for="mustHave">Is it a must-have</label><input type="checkbox" id="mustHave" :checked="isMustHave" @click="toggleMustHave()" >
                         </div>
-                    </template>
-                    <template v-if="showCostError()">
-                        <div :class="$style.errorDiv">
-                            Please enter a cost that is > 0.
+                        <div :class="$style.addBtnWrapper">
+                            <button :class="$style.addItemBtn" @click="addItemBtnClicked">Add item</button>
                         </div>
-                    </template>
-                    <div :class="$style.mustHaveWrapper">
-                        <label for="mustHave">Is it a must-have</label><input type="checkbox" id="mustHave" :checked="isMustHave" @click="toggleMustHave()" >
-                    </div>
-                    <div :class="$style.addBtnWrapper">
-                        <button :class="$style.addItemBtn" @click="addItemBtnClicked">Add item</button>
                     </div>
                 </div>
+                <div :class="$style.itemsList">
+                    <template v-for="item in items">
+                        <Item :item="item" />
+                    </template>
+                </div>
             </div>
-            <div :class="$style.itemsList">
-                <template v-for="item in items">
-                    <Item :item="item" />
-                </template>
+            <button :class="$style.generateValueBtn">Generate Max Value!</button>
+            <div :class="$style.resultsWrapper">
+
             </div>
-            <!-- <button :class="$style.generateValueBtn">Generate Max Value!</button> -->
         </div>
+
+        
     </div>
 </template>
 

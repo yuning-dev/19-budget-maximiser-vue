@@ -2,7 +2,7 @@
     <div :class="$style.wrapper">
         <div :class="$style.name">
             {{ item.name }}
-            <font-awesome-icon icon="fa-solid fa-asterisk" />
+            <!-- <font-awesome-icon icon="fa-solid fa-asterisk" /> -->
         </div>
         <div :class="$style.cost">
             {{ item.cost }}
